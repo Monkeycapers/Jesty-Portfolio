@@ -1,0 +1,22 @@
+{% extends "posts/index.html" %} 
+{% load markdownify %}
+{% block content %} 
+{% if latest_posts_list %}
+{% for post in latest_posts_list %}
+<div class="post">
+    <div class="postheader">
+        <div class="posttitle">{{ post.title }}</div>
+        <div class="postdate">
+            <p>{{ post.published }}</p>
+        </div>
+    </div>
+    <div class="postcontent">
+        <div style="height: 10px; width: 100%;"></div>
+        {{ post.preview | markdown | safe }}
+    </div>
+</div>
+{% endfor %}
+{% else %}
+    <p>No posts are available.</p>
+{% endif %} 
+{% endblock %}

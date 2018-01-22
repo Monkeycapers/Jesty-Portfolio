@@ -1,0 +1,85 @@
+{% load staticfiles %}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Evan Jesty Portfolio</title>
+    <meta name="description" content="Evan Jestys Portfolio">
+    <meta name="author" content="Evan Jesty">
+    <!--
+  <link rel="stylesheet" href="css/normalize">
+  <link rel="stylesheet" href="css/skeleton.css">
+  
+-->
+    <link rel="stylesheet" href={% static "css/site.css" %}>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script src={% static "js/site.js" %}></script>
+    <!-- Navigation Bar -->
+    <div id="navigation" class="navbar">
+        <div id="logo">
+            EVAN JESTY
+            <div class="logosub">
+                Portfolio
+            </div>
+        </div>
+        <div id="links">
+            <div id="links-inner">
+                <a href="Home" class="selected">Home</a>
+                <a href="About">About</a>
+                <a href="Projects">Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content" class="content">
+        <div id="main" class="main">
+            <div id = "posts" class="posts" style="margin-top:0px;">
+                {% block content %}{% endblock %}
+            </div>
+            <div id = "morePosts" class = "button">
+                More Posts
+            </div>
+        </div>
+
+        <div id="sidebar" class="sidebar">
+            <p class="sideheader" style="margin-top:0px">About:</p>
+            <div class="sideimage">
+                <div class="imagecontainer">
+                    <img src={% static "image/placeholder.jpg" %} class="roundimg">
+                </div>
+            </div>
+            <br> I'm Evan Jesty, a 1st year computer science student at Nipissing University.
+            <br> Here you can find various side projects I have worked on, and anything else I have posted on here.
+
+            <p class="sideheader">Links:</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/Monkeycapers">Github</a>
+                </li>
+            </ul>
+
+            <p class="sideheader">Server Status:</p>
+            <p>Drawit: Offline</p>
+            <p>Streaming Converter: Offline</p>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
