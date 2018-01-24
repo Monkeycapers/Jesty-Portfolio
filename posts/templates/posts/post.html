@@ -1,9 +1,8 @@
 {% extends "posts/index.html" %} 
 {% load markdownify %}
 {% block content %} 
-<div id = "posts" class="posts" style="margin-top:0px;">        
-{% if latest_posts_list %}
-{% for post in latest_posts_list %}
+<div id = "posts" class="posts" style="margin-top:0px;"> 
+{% if post %}
 <div class="post">
     <div class="postheader">
         <a class="posttitle" href={% url 'getPost' post.post_id %}>{{post.title}}</a>
@@ -16,14 +15,8 @@
         {{ post.preview | markdown | safe }}
     </div>
 </div>
-{% endfor %}
-{% if more_posts %}
-<div id = "morePosts" class = "button">
-    More Posts 
-</div>
-{% endif %}
 {% else %}
-    <p>No posts are available.</p>
+    <p>Post does not exist!</p>
 {% endif %}
-</div>
+</div> 
 {% endblock %}

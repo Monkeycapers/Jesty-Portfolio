@@ -17,6 +17,8 @@
     <link rel="stylesheet" href={% static "css/site.css" %}>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+
 </head>
 
 <body>
@@ -46,12 +48,7 @@
     <!-- Main Content -->
     <div id="content" class="content">
         <div id="main" class="main">
-            <div id = "posts" class="posts" style="margin-top:0px;">
-                {% block content %}{% endblock %}
-            </div>
-            <div id = "morePosts" class = "button">
-                More Posts
-            </div>
+            {% block content %}{% endblock %}    
         </div>
 
         <div id="sidebar" class="sidebar">

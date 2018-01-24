@@ -16,8 +16,17 @@ $(document).ready(function(){
             url: "http://localhost:8000/posts/ajax/" + (currPage + 1)
           }).done(function(response) {
             console.log(response);
-            $("#posts").append(response);
-            currPage++;
+            if (response["more_posts"] || !response["no_posts"]){
+                $("#posts").append(response["html"]);
+                var moreposts = document.getElementById('morePosts');
+                moreposts.parentNode.appendChild(moreposts);
+                currPage++;
+            }
+            
+            if (!response["more_posts"]) {
+                $("#morePosts").css("display", "none");
+            }
+
           })
           .fail(function (e) {
               console.log(e);

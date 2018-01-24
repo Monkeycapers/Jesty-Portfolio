@@ -62,6 +62,7 @@ body {
 
 .posts {
     max-width: 900px;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 719px) {
@@ -136,6 +137,8 @@ body {
 }
 
 .posttitle {
+    text-decoration: none;
+    color:black;
     font-weight: bold;
     font-size: 20px;
     float: left;
@@ -177,6 +180,22 @@ body {
 
 .roundimg {
     border-radius: 50%;
+}
+
+.button {
+    font-size: 15px;
+    padding: 10px;
+    display: inline-block;
+    color: #45a8d3;
+    border: 1px #45a8d3 solid;
+    border-radius: 4.8px;
+    margin-top: -20px;
+}
+
+.button:hover {
+    color: white;
+    background-color: #45a8d3;
+    cursor: pointer;
 }
 
 .sidelinks {}
