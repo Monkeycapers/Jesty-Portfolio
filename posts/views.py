@@ -26,18 +26,21 @@ def index(request):
 def getPosts(amount, page, request):
     return render(request, 'posts/posts.html', getContext(amount, page))
 
-def getContext(amount, page):
+def getContext(amount, page, is_home=True):
     latest_posts_list = Post.objects.order_by('-published')[((page - 1) * amount):(amount + ((page - 1) * amount))] # todo: very basic
     context = {
         'latest_posts_list': latest_posts_list,
         'more_posts': (len(latest_posts_list) >= amount),
-        'no_posts': (len(latest_posts_list) == 0)
+        'no_posts': (len(latest_posts_list) == 0),
+        'is_home': is_home
     }
     return context
 
-def getPost(request, pid):
+def getPost(request, pid, slug=None):
     print(pid)
     p = Post.objects.get(pk=pid)
-    print("???")
-    context = {'post': p}
+    context = {'post': p,
+     'is_home': False,
+     'tags': p.tags.all()
+     }
     return render(request, 'posts/post.html', context)

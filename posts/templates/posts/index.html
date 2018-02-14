@@ -38,7 +38,7 @@
         </div>
         <div id="links">
             <div id="links-inner">
-                <a href="Home" class="selected">Home</a>
+                <a href={% url 'index' %} {% block homesel %} {% endblock %}>Home</a>
                 <a href="About">About</a>
                 <a href="Projects">Projects</a>
             </div>

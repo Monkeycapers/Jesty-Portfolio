@@ -1,19 +1,32 @@
 {% extends "posts/index.html" %} 
 {% load markdownify %}
+
 {% block content %} 
 <div id = "posts" class="posts" style="margin-top:0px;"> 
 {% if post %}
 <div class="post">
     <div class="postheader">
-        <a class="posttitle" href={% url 'getPost' post.post_id %}>{{post.title}}</a>
+        <a class="posttitle" href={% url 'getPost' post.post_id post.title|slugify %}>{{post.title}}</a> 
         <div class="postdate">
             <p>{{ post.published }}</p>
         </div>
     </div>
+    {% if tags %}
+    <div class="posttags">
+        <!--<span class="tagslabel">Tags:</span> -->
+    {% for tag in tags %}
+    <span class = "tag"> {{tag.tag}} </span>
+    {% endfor %}
+    </div>
+    {% endif %}
     <div class="postcontent">
         <div style="height: 10px; width: 100%;"></div>
         {{ post.preview | markdown | safe }}
     </div>
+    {% spaceless %}
+    <!--<div class="split"></div>-->
+    
+    {% endspaceless %}
 </div>
 {% else %}
     <p>Post does not exist!</p>

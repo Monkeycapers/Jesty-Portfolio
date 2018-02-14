@@ -13,7 +13,7 @@ $(document).ready(function(){
         //     }
         // }
         $.ajax({
-            url: "http://localhost:8000/posts/ajax/" + (currPage + 1)
+            url: "http://localhost:8000/ajax/" + (currPage + 1)
           }).done(function(response) {
             console.log(response);
             if (response["more_posts"] || !response["no_posts"]){

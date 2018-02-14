@@ -1,12 +1,20 @@
 {% extends "posts/index.html" %} 
 {% load markdownify %}
+
+{% block homesel %}
+{% if is_home %}
+    class="selected"
+{% endif %}
+{% endblock %}
+
 {% block content %} 
+
 <div id = "posts" class="posts" style="margin-top:0px;">        
 {% if latest_posts_list %}
 {% for post in latest_posts_list %}
 <div class="post">
     <div class="postheader">
-        <a class="posttitle" href={% url 'getPost' post.post_id %}>{{post.title}}</a>
+        <a class="posttitle" href={% url 'getPost' post.post_id post.title|slugify %}>{{post.title}}</a> 
         <div class="postdate">
             <p>{{ post.published }}</p>
         </div>
