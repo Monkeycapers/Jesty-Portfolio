@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
 
-from posts.models import Post
+from posts.models import Post, Tag
 
 # Create your views here.
 
@@ -25,6 +25,21 @@ def index(request):
 
 def getPosts(amount, page, request):
     return render(request, 'posts/posts.html', getContext(amount, page))
+
+def postsByTag(request, tag, amount=5, page=1):
+    actualTag = Tag.objects.get(tag=tag)
+    print(actualTag)
+    posts = Post.objects.filter(tags=actualTag) # todo: very basic
+    total = len(posts)
+    posts = posts[((page - 1) * amount):(amount + ((page - 1) * amount))]
+    context = {
+        'latest_posts_list': posts,
+        'more_posts': (len(posts) >= amount),
+        'no_posts': (len(posts) == 0),
+        'is_home': False,
+        'amount': total
+    }
+    return render(request, 'posts/search.html', context)
 
 def getContext(amount, page, is_home=True):
     latest_posts_list = Post.objects.order_by('-published')[((page - 1) * amount):(amount + ((page - 1) * amount))] # todo: very basic

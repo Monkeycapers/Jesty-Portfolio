@@ -25,6 +25,10 @@ body {
     float: right;
 }
 
+#searchimage {
+    vertical-align: top;
+}
+
 .navbar #logo {
     width: auto;
     font-weight: bold;
@@ -210,7 +214,7 @@ body {
     color: black;
     margin-right: 4px;
     margin-bottom: 4px;
-    
+    text-decoration: none;
 }
 
 .tag:hover {
