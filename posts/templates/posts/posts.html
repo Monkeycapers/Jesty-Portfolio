@@ -19,10 +19,21 @@
             <p>{{ post.published }}</p>
         </div>
     </div>
+    {% if post.tags.all %}
+    <div class="posttags">
+        <!--<span class="tagslabel">Tags:</span> -->
+    {% for tag in post.tags.all %}
+    <span class = "tag"> {{tag.tag}} </span>
+    {% endfor %}
+    {% endif %}
+    </div>
     <div class="postcontent">
         <div style="height: 10px; width: 100%;"></div>
         {{ post.preview | markdown | safe }}
     </div>
+    <a href={% url 'getPost' post.post_id post.title|slugify %}>
+        Continue reading...
+    </a>
 </div>
 {% endfor %}
 {% if more_posts %}
