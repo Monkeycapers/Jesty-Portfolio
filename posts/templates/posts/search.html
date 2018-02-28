@@ -1,0 +1,48 @@
+{% extends "posts/index.html" %} 
+{% load markdownify %}
+{% block content %} 
+<div id = "search">
+    <!-- <div id = "searchinput">
+        Search for posts: <input type="text"></input>
+    </div> -->
+    <div id = "amountposts">
+        <h2>{{amount}} Post{% if amount != 1 %} s {% endif %}</h2>
+    </div>
+</div>
+<div id = "posts" class="posts" style="margin-top:0px;">        
+{% if latest_posts_list %}
+{% for post in latest_posts_list %}
+<div class="post">
+    <div class="postheader">
+        <a class="posttitle" href={% url 'getPost' post.post_id post.title|slugify %}>{{post.title}}</a> 
+        <div class="postdate">
+            <p>{{ post.published }}</p>
+        </div>
+    </div>
+    {% if post.tags.all %}
+    <div class="posttags">
+        <!--<span class="tagslabel">Tags:</span> -->
+    {% for tag in post.tags.all %}
+    <span class = "tag"> {{tag.tag}} </span>
+    {% endfor %}
+    {% endif %}
+    </div>
+    <div class="postcontent">
+        <div style="height: 10px; width: 100%;"></div>
+        {{ post.preview | markdown | safe }}
+    </div>
+    <a href={% url 'getPost' post.post_id post.title|slugify %}>
+        Continue reading...
+    </a>
+</div>
+{% endfor %}
+{% if more_posts %}
+<div id = "morePosts" class = "button">
+    More Posts 
+</div>
+{% endif %}
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
+</div>
+{% endblock %}
