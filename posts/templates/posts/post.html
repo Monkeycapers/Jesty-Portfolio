@@ -15,7 +15,7 @@
     <div class="posttags">
         <!--<span class="tagslabel">Tags:</span> -->
     {% for tag in tags %}
-    <a class = "tag" href={% url 'postsByTag' tag.tag %}> {{tag.tag}} </a>
+    <a class = "tag" href={% url 'search' 'tag' tag.tag %}> {{tag.tag}} </a>
     {% endfor %}
     </div>
     {% endif %}
