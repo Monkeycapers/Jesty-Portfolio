@@ -7,10 +7,13 @@
         Search for posts: <input type="text"></input>
     </div> -->
     <div id = "searchinput" class = "searchinput">
-        <input type="search" placeholder="Search for posts..."></input> <img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img>
+        <input type="search" placeholder="Search for posts..."></input> 
+        <img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img>
+        <img src={% static 'svg/magnify.svg' %} id ='showtags' class = 'showtags'></img>
     </div>
+    
     <div id = "amountposts">
-        <h2>{{amount}} Post{% if amount != 1 %}s{% endif %}{% if hastag %}{% if tag is None %}, the tag does not exist! {% else %} {% if amount == 1 %} has {% else %} have {% endif %} the tag <span class = "tag"> {{tag}} </span> {% endif %} {% endif %} </h2>
+        <h2 class = 'searchresponse'>{{amount}} Post{% if amount != 1 %}s{% endif %}{% if hastag %}{% if tag is None %}, the tag does not exist! </h2> {% else %} {% if amount == 1 %} has {% else %} have {% endif %} the tag </h2> <span class = "tag"> {{tag}} </span> {% endif %} {% else %} </h2> {% endif %}
     </div>
 </div>
 <div id = "posts" class="posts" style="margin-top:0px;">        

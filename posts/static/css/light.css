@@ -1,0 +1,63 @@
+html,
+body {
+    /* background-color: #212121; */
+    /* color: white; */
+}
+
+.navbar {
+     background-color:#212121;
+     border-bottom: 1px #ebebeb solid; 
+     color:white;
+}
+
+
+
+.logosub {
+    color: #E0E0E0;
+}
+
+.navbar a:hover {
+    color: #45e2f7;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+.navbar a {
+    color: white;
+}
+
+.posttitle {
+    color:black;
+    font-weight: bold;
+}
+
+.postdate p {
+    color: gray;
+}
+
+.button {
+    color: #45a8d3;
+    border: 1px #45a8d3 solid;
+}
+
+.button:hover {
+    color: black;
+    background-color: #45a8d3;
+}
+
+.tag, .tag:visited {
+    background-color: rgb(222, 222, 222);
+    color: black;
+}
+
+.split {
+    border-bottom: 4px black solid;
+}
+
+.searchinput input {
+    color: black;
+    border: none;
+    border-bottom: 1px #ebebeb solid;
+}

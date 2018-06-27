@@ -1,0 +1,69 @@
+html,
+body {
+    background-color: #1d1c1c;
+    color: white;
+}
+
+a {
+    color:white;
+}
+
+a:visited {
+    color: white;
+}
+
+.navbar {
+     background-color:#212121;
+     border-bottom: none;
+     /* border-bottom: 1px #ebebeb solid;  */
+}
+
+.logosub {
+    color: whitesmoke;
+}
+
+.navbar a:hover {
+    color: #45e2f7;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+.navbar a {
+    color: white;
+}
+
+.posttitle {
+    color:white;
+    font-weight: bold;
+}
+
+.postdate p {
+    color: whitesmoke;
+}
+
+.button {
+    color: #45a8d3;
+    border: 1px #45a8d3 solid;
+}
+
+.button:hover {
+    color: white;
+    background-color: #45a8d3;
+}
+
+.tag, .tag:visited {
+    background-color: gray;
+    color: white;
+}
+
+.split {
+    border-bottom: 4px white solid;
+}
+
+.searchinput input {
+    color: white;
+    border: none;
+    border-bottom: 1px whitesmoke solid;
+}

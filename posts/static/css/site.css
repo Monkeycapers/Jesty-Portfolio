@@ -10,22 +10,39 @@ body {
 .navbar {
     width: 70%;
     height: auto;
-    padding-top: 50px;
+    padding-top: 25px;
     padding-bottom: 3px;
     padding-left: 15%;
     padding-right: 15%;
+    /* background-color:black; */
+    border-bottom: 1px #ebebeb solid; 
+    /* background-color: #fafafa; */
+}
+
+.navbar-inner {
+    height: 60px;
+    /* color:white; */
 }
 
 .navbar #links {
     float: right;
     width: 50%;
+    /* margin-bottom: 0; */
+     padding-top: 8px
 }
 
 #links-inner {
     float: right;
+    width: 100%;
 }
 
 .searchimage {
+    vertical-align: top;
+}
+
+.nightimage {
+    max-width: 24px;
+    max-height: 24px;
     vertical-align: top;
 }
 
@@ -34,6 +51,7 @@ body {
     font-weight: bold;
     font-size: 20px;
     float: left;
+    margin-top: 0;
 }
 
 .logosub {
@@ -44,6 +62,7 @@ body {
 .navbar a {
     padding-left: 15px;
     padding-right: 15px;
+    float: right;
 }
 
 .navbar a:hover {
@@ -57,7 +76,7 @@ body {
 }
 
 .content {
-    margin-top: 100px;
+    /* padding-top: 30px; */
     /*margin-left: 15%;
     margin-right: 15%;
     */
@@ -69,7 +88,15 @@ body {
     margin-bottom: 20px;
 }
 
-@media (max-width: 719px) {
+.sidebar {
+    margin-top: 10px;
+}
+
+.main {
+    margin-top: 10px;
+}
+
+@media (max-width: 734px) {
     .post {
         margin-left: 20px;
         margin-right: 20px;
@@ -82,9 +109,17 @@ body {
         padding-left: 20px;
         padding-right: 20px;
     }
+    .sidebar {
+        width: 83%;
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 3px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
-@media (min-width: 720px) and (max-width: 1023px) {
+@media (min-width: 735px) and (max-width: 1023px) {
     .main {
         float: left;
         width: 55%;
@@ -103,6 +138,8 @@ body {
         float: left;
         width: 35%;
         max-width: 250px;
+        padding-left: 5px;
+        /* border-left: 1px #ebebeb solid;  */
     }
     .sidebar div {
         word-spacing: -.25em;
@@ -120,6 +157,8 @@ body {
         float: left;
         width: 35%;
         max-width: 250px;
+        padding-left: 5px;
+        /* border-left: 1px #ebebeb solid;  */
     }
     .sidebar div {
         word-spacing: -.25em;
@@ -202,7 +241,7 @@ body {
     cursor: pointer;
 }
 
-.tag {
+.tag, .tag:visited {
     display: inline-block;
     background-color: rgb(222, 222, 222);
     padding-top: 4px;
@@ -233,10 +272,16 @@ body {
     border-bottom: 4px black solid;
 }
 
+.search {
+    margin-top: 10px
+}
+
 .searchinput {
-    width: 290px;
+    width: 320px;
 
 }
+
+
 
 .searchinput input {
     width: 250px;
@@ -244,6 +289,10 @@ body {
     color: black;
     border: none;
     border-bottom: 1px grey solid;
+}
+
+.searchresponse {
+    display: inline-block
 }
 
 .searchinput img {
