@@ -26,7 +26,7 @@ body {
 
 .navbar #links {
     float: right;
-    width: 50%;
+    width: auto;
     /* margin-bottom: 0; */
      padding-top: 8px
 }
@@ -101,13 +101,18 @@ body {
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    .navbar-inner {
+        display: none;
+    }
+
     .navbar {
-        width: 83%;
+        width: 100%;
         height: auto;
-        padding-top: 50px;
+        /* padding-top: 50px;
         padding-bottom: 3px;
         padding-left: 20px;
-        padding-right: 20px;
+        padding-right: 20px; */
     }
     .sidebar {
         width: 83%;
