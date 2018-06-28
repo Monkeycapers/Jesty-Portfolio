@@ -31,12 +31,23 @@ body {
      padding-top: 8px
 }
 
+#small-nav {
+    display: none;
+    float: left;
+    width: auto;
+    margin-left: 15px;
+}
+
 #links-inner {
     float: right;
     width: 100%;
 }
 
 .searchimage {
+    vertical-align: top;
+}
+
+.menuimage {
     vertical-align: top;
 }
 
@@ -96,35 +107,15 @@ body {
     margin-top: 10px;
 }
 
-@media (max-width: 734px) {
-    .post {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
 
-    .navbar-inner {
-        display: none;
-    }
 
-    .navbar {
-        width: 100%;
-        height: auto;
-        /* padding-top: 50px;
-        padding-bottom: 3px;
-        padding-left: 20px;
-        padding-right: 20px; */
-    }
-    .sidebar {
-        width: 83%;
-        height: auto;
-        padding-top: 50px;
-        padding-bottom: 3px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
+/* @media (min-width: 735px) and (max-width: 1023px) { */
+@media screen and (min-device-width: 735px) and (max-device-width: 1023px), screen and (min-width: 735px) and (max-width: 1023px) {
 
-@media (min-width: 735px) and (max-width: 1023px) {
+    html,
+    body {
+        font-size: 20px;
+    }
     .main {
         float: left;
         width: 55%;
@@ -151,7 +142,56 @@ body {
     }
 }
 
-@media (min-width: 1024px) {
+/* @media (max-width: 734px) { */
+    @media screen and (max-device-width: 734px ), screen and (max-width: 734px) {
+
+        html,
+        body {
+            font-size: 20px;
+        }
+    
+        .main {
+            width: 100%;
+        }
+
+        #small-nav {
+            display: block;
+        }
+    
+        .post {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .navbar {
+            display: none;
+        }
+    
+        .navbar-inner {
+            display: none;
+        }
+    
+        .navbar {
+            width: auto;
+            height: auto;
+            /* padding-top: 50px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 20px; */
+        }
+        .sidebar {
+            display: none;
+            /* width: 0%; */
+            /* width: 83%;
+            height: auto;
+            padding-top: 50px;
+            padding-bottom: 3px;
+            padding-left: 20px;
+            padding-right: 20px; */
+        }
+    }
+
+@media screen and (min-width: 1024px) {
     .main {
         float: left;
         width: 55%;
@@ -213,6 +253,7 @@ body {
 
 .sideimage {
     width: 100%;
+    float:left;
     display: table;
 }
 

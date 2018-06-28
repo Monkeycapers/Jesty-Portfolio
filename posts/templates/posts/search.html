@@ -1,6 +1,15 @@
 {% extends "posts/index.html" %} 
 {% load markdownify %}
 {% load staticfiles %}
+
+{% block darksel %}
+{% if dark %}
+<link rel="stylesheet" href={% static "css/dark.css" %}>
+{% else %}
+<link rel="stylesheet" href={% static "css/light.css" %}>
+{% endif %}
+{% endblock %} 
+
 {% block content %} 
 <div id = "search">
     <!-- <div id = "searchinput">

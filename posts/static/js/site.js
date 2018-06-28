@@ -33,4 +33,21 @@ $(document).ready(function(){
           })
           ;
     });
+    $("#toggle-night").click(function() {
+        $.ajax({
+            url: "http://localhost:8000/ajax-toggle-night"
+          }).done(function(response) {
+            console.log(response);
+            location.reload(true);
+            //alert('test1');
+          })
+          .fail(function (e) {
+            console.log(e);
+            //alert('test2');
+          })
+          ;
+
+          
+
+    });
 });

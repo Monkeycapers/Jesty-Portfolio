@@ -18,6 +18,10 @@ a:visited {
      /* border-bottom: 1px #ebebeb solid;  */
 }
 
+#small-nav {
+    background-color: #212121;
+}
+
 .logosub {
     color: whitesmoke;
 }

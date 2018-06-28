@@ -1,5 +1,16 @@
 {% extends "posts/index.html" %} 
+{% load staticfiles %}
 {% load markdownify %}
+
+{% block darksel %}
+{% if dark %}
+<link rel="stylesheet" href={% static "css/dark.css" %}>
+{% else %}
+<link rel="stylesheet" href={% static "css/light.css" %}>
+{% endif %}
+{% endblock %} 
+
+
 
 {% block homesel %}
 {% if is_home %}
