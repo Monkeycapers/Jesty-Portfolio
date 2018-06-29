@@ -1,5 +1,23 @@
 var currPage = 1;
 var showMenu = false;
+
+var URL = "192.168.2.187:8000"
+
+function toggleNight() {
+    $.ajax({
+        url: "http://" + URL + "/ajax-toggle-night"
+      }).done(function(response) {
+        console.log(response);
+        location.reload(true);
+        //alert('test1');
+      })
+      .fail(function (e) {
+        console.log(e);
+        //alert('test2');
+      })
+      ;
+}
+
 $(document).ready(function(){
     $("#morePosts").click(function() {
         // $.get("localhost:8000/posts/ajax/" + currPage) , function(response) {
@@ -13,7 +31,7 @@ $(document).ready(function(){
         //     }
         // }
         $.ajax({
-            url: "http://localhost:8000/ajax/" + (currPage + 1)
+            url: "http://" + URL + "/ajax/" + (currPage + 1)
           }).done(function(response) {
             console.log(response);
             if (response["more_posts"] || !response["no_posts"]){
@@ -34,18 +52,10 @@ $(document).ready(function(){
           ;
     });
     $("#toggle-night").click(function() {
-        $.ajax({
-            url: "http://localhost:8000/ajax-toggle-night"
-          }).done(function(response) {
-            console.log(response);
-            location.reload(true);
-            //alert('test1');
-          })
-          .fail(function (e) {
-            console.log(e);
-            //alert('test2');
-          })
-          ;
+        toggleNight();
+    });
+    $("#toggle-night-small").click(function() {
+        toggleNight();
     });
     $("#small-menu-button").click(function() {
         showMenu = !showMenu;

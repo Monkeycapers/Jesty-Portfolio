@@ -46,7 +46,7 @@ body {
     padding: 0px;
     margin: 0px;
     margin-right: 5%;
-    padding-top: 5px;
+    padding-top: 0px;
     
 }
 
@@ -65,7 +65,8 @@ body {
     text-decoration: none;
     display: block;
     /* margin-left: 5%; */
-    width: 95%;
+    font-size: 48px;
+    width: 100%;
 }
 
 #small-menu div a:hover {
@@ -120,8 +121,6 @@ body {
     color: #45e2f7;
 }
 
-.navbar div {}
-
 .selected {
     font-weight: bold;
 }
@@ -147,7 +146,140 @@ body {
     margin-top: 10px;
 }
 
+.navbar a {
+    font-weight: 18px;
+    text-decoration: none;
+    color: black;
+}
 
+.post {
+    padding-bottom: 40px;
+}
+
+.sideheader {
+    font-weight: bold;
+}
+
+.posttitle {
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+    width: 70%;
+}
+
+.postheader {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.postdate {
+    float: right;
+    width: 30%;
+}
+
+.postdate p {
+    float: right;
+    color: #636363;
+}
+
+.sideimage {
+    width: 100%;
+    float:left;
+    display: table;
+}
+
+.imagecontainer {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.imagecontainer img {
+    height: 150px;
+}
+
+.roundimg {
+    border-radius: 50%;
+}
+
+.button {
+    font-size: 15px;
+    padding: 10px;
+    display: inline-block;
+    color: #45a8d3;
+    border: 1px #45a8d3 solid;
+    border-radius: 4.8px;
+    margin-top: -20px;
+}
+
+.button:hover {
+    color: white;
+    background-color: #45a8d3;
+    cursor: pointer;
+}
+
+.tag, .tag:visited {
+    display: inline-block;
+    background-color: rgb(222, 222, 222);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 4.8px;
+    /* font-size: 13px; */
+    color: black;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    text-decoration: none;
+}
+
+.tag:hover {
+    cursor: pointer;
+}
+
+.tagslabel {
+    display: block;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.split {
+    width: 100%;
+    border-bottom: 4px black solid;
+}
+
+.search {
+    margin-top: 10px
+}
+
+.searchinput {
+    width: 320px;
+
+}
+
+.searchinput input {
+    width: 250px;
+    font-size: 20px;
+    color: black;
+    border: none;
+    border-bottom: 1px grey solid;
+}
+
+.searchresponse {
+    display: inline-block
+}
+
+.searchinput img {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+
+}
 
 /* @media (min-width: 735px) and (max-width: 1023px) { */
 @media screen and (min-device-width: 735px) and (max-device-width: 1023px), screen and (min-width: 735px) and (max-width: 1023px) {
@@ -196,6 +328,14 @@ body {
 
         #small-nav {
             display: table;
+        }
+
+        .posttitle {
+            font-size: 25px;
+        }
+
+        .tag {
+            font-size: 20px;
         }
     
         .post {
@@ -250,143 +390,3 @@ body {
     }
 }
 
-.navbar a {
-    font-weight: 18px;
-    text-decoration: none;
-    color: black;
-}
-
-.post {
-    padding-bottom: 40px;
-}
-
-.sideheader {
-    font-weight: bold;
-}
-
-.posttitle {
-    text-decoration: none;
-    color:black;
-    font-weight: bold;
-    font-size: 20px;
-    float: left;
-    width: 70%;
-}
-
-.postheader {
-    width: 100%;
-    height: auto;
-    display: flex;
-}
-
-.postdate {
-    float: right;
-    width: 30%;
-}
-
-.postdate p {
-    float: right;
-    color: #636363;
-}
-
-.postcontent {}
-
-.sideimage {
-    width: 100%;
-    float:left;
-    display: table;
-}
-
-.imagecontainer {
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-}
-
-.imagecontainer img {
-    height: 150px;
-}
-
-.roundimg {
-    border-radius: 50%;
-}
-
-.button {
-    font-size: 15px;
-    padding: 10px;
-    display: inline-block;
-    color: #45a8d3;
-    border: 1px #45a8d3 solid;
-    border-radius: 4.8px;
-    margin-top: -20px;
-}
-
-.button:hover {
-    color: white;
-    background-color: #45a8d3;
-    cursor: pointer;
-}
-
-.tag, .tag:visited {
-    display: inline-block;
-    background-color: rgb(222, 222, 222);
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 7px;
-    padding-right: 7px;
-    border-radius: 4.8px;
-    font-size: 13px;
-    color: black;
-    margin-right: 4px;
-    margin-bottom: 4px;
-    text-decoration: none;
-}
-
-.tag:hover {
-    cursor: pointer;
-}
-
-.tagslabel {
-    display: block;
-    font-size: 15px;
-    width: 100%;
-    margin-bottom: 3px;
-}
-
-.split {
-    width: 100%;
-    border-bottom: 4px black solid;
-}
-
-.search {
-    margin-top: 10px
-}
-
-.searchinput {
-    width: 320px;
-
-}
-
-
-
-.searchinput input {
-    width: 250px;
-    font-size: 20px;
-    color: black;
-    border: none;
-    border-bottom: 1px grey solid;
-}
-
-.searchresponse {
-    display: inline-block
-}
-
-.searchinput img {
-    vertical-align: middle;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-
-}
-
-.sidelinks {}
