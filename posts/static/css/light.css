@@ -20,6 +20,20 @@ body {
     color: #45e2f7;
 }
 
+#small-nav {
+    background-color: #212121;
+    color: white;
+}
+
+#small-menu div {
+    background-color: #212121;
+    color: white;
+}
+
+#small-menu div a {
+    color:white;
+}
+
 .selected {
     font-weight: bold;
 }

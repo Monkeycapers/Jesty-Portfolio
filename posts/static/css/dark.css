@@ -22,6 +22,10 @@ a:visited {
     background-color: #212121;
 }
 
+#small-menu div {
+    background-color: #212121;
+}
+
 .logosub {
     color: whitesmoke;
 }

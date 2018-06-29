@@ -1,5 +1,5 @@
 var currPage = 1;
-
+var showMenu = false;
 $(document).ready(function(){
     $("#morePosts").click(function() {
         // $.get("localhost:8000/posts/ajax/" + currPage) , function(response) {
@@ -46,8 +46,15 @@ $(document).ready(function(){
             //alert('test2');
           })
           ;
-
-          
-
+    });
+    $("#small-menu-button").click(function() {
+        showMenu = !showMenu;
+        if (showMenu) {
+            $("#small-menu").css("display", "block");
+        }
+        else {
+            $("#small-menu").css("display", "none");
+        }
+        
     });
 });

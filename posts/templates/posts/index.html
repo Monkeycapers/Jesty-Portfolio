@@ -61,7 +61,18 @@
     </div>
 
     <div id="small-nav">
-        <a href='#'><img src={% static 'svg/menu.svg' %} id ='menuimage' class ='menuimage'></img></a>
+        <div id ="small-logo">
+            Evan Jesty Portfolio
+        </div>
+        <div id="small-nav-inner">
+            <a href='#' id='small-menu-button'><img src={% static 'svg/menu.svg' %} id ='menuimage' class ='menuimage'></img></a>
+        </div>
+    </div>
+
+    <div id="small-menu">
+            <div><a href={% url 'index' %}>Home</a></div>
+            <div><a href={% url 'getPost' 1 'this-site' %}>About</a></div>
+            <div><a href="Projects">Projects</a></div>
     </div>
 
     <!-- Main Content -->
