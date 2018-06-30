@@ -41,7 +41,8 @@
             </div>
             <div id="links">
                 <div id="links-inner">
-                    <a href='#' id ='toggle-night'><img src={% static 'svg/moon.svg' %} class ='nightimage'></img></a>
+                    
+                    <a href='#' id ='toggle-night'><img src={% block darksel2 %} {% endblock %} class ='nightimage'></img></a>
                     <a href={% url 'search' %}><img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img></a>
                     <a href="Projects">Projects</a>
                     <a href={% url 'getPost' 1 'this-site' %}>About</a>
@@ -62,7 +63,7 @@
 
     <div id="small-nav">
         <div id ="small-logo">
-            Evan Jesty Portfolio
+            EVAN JESTY PORTFOLIO
         </div>
         <div id="small-nav-inner">
             <a href='#' id='small-menu-button'><img src={% static 'svg/menu.svg' %} id ='menuimage' class ='menuimage'></img></a>

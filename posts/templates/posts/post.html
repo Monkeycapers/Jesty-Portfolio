@@ -8,7 +8,16 @@
 {% else %}
 <link rel="stylesheet" href={% static "css/light.css" %}>
 {% endif %}
-{% endblock %} 
+{% endblock %}
+
+{% block darksel2 %}
+{% if dark %}
+{% static 'svg/sun.svg' %}
+{% else %}
+{% static 'svg/moon.svg' %}
+{% endif %}
+{% endblock %}
+
 
 {% block content %} 
 <div id = "posts" class="posts" style="margin-top:0px;"> 

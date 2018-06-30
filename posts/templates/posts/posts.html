@@ -10,7 +10,13 @@
 {% endif %}
 {% endblock %} 
 
-
+{% block darksel2 %}
+{% if dark %}
+{% static 'svg/sun.svg' %}
+{% else %}
+{% static 'svg/moon.svg' %}
+{% endif %}
+{% endblock %}
 
 {% block homesel %}
 {% if is_home %}

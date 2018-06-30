@@ -37,6 +37,7 @@ body {
     width: 100%;
     height: 50px;
     font-size: 30px;
+    font-weight: bold;
     /* margin-left: 15px; */
 }
 
@@ -46,7 +47,7 @@ body {
     padding: 0px;
     margin: 0px;
     margin-right: 5%;
-    padding-top: 0px;
+    /* padding-top: 5px; */
     
 }
 
@@ -164,7 +165,7 @@ body {
     text-decoration: none;
     color:black;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     float: left;
     width: 70%;
 }
@@ -233,6 +234,7 @@ body {
     color: black;
     margin-right: 4px;
     margin-bottom: 4px;
+    font-size: 12px;
     text-decoration: none;
 }
 
@@ -242,7 +244,7 @@ body {
 
 .tagslabel {
     display: block;
-    font-size: 15px;
+    
     width: 100%;
     margin-bottom: 3px;
 }
@@ -331,16 +333,20 @@ body {
         }
 
         .posttitle {
-            font-size: 25px;
+            font-size: 50px;
         }
 
         .tag {
-            font-size: 20px;
+            font-size: 25px;
         }
     
         .post {
             margin-left: 20px;
             margin-right: 20px;
+        }
+
+        .postdate p {
+            font-size: 25px;
         }
 
         .navbar {
