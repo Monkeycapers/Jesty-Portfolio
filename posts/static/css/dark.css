@@ -30,6 +30,10 @@ a:visited {
     color: whitesmoke;
 }
 
+#small-logo-sub {
+    color: whitesmoke;
+}
+
 .navbar a:hover {
     color: #45e2f7;
 }

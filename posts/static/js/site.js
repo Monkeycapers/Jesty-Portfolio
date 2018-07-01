@@ -1,8 +1,8 @@
 var currPage = 1;
 var showMenu = false;
 
-var URL = "192.168.2.187:8000"
-//var URL = "localhost:8000"
+//var URL = "192.168.2.187:8000"
+var URL = "localhost:8000"
 
 function toggleNight() {
     $.ajax({
