@@ -10,7 +10,12 @@ body {
      color:white;
 }
 
-
+.postcomments-text textarea {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    /* border: 1px solid rgb(34, 34, 34); */
+}
 
 .logosub {
     color: #E0E0E0;
@@ -57,7 +62,7 @@ body {
 }
 
 .button:hover {
-    color: black;
+    color: white;
     background-color: #45a8d3;
 }
 

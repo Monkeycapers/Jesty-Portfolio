@@ -55,6 +55,12 @@ a:visited {
     color: whitesmoke;
 }
 
+.postcomments-text textarea {
+    background-color: #212121;
+    color: white;
+    border: 1px solid rgb(34, 34, 34);
+}
+
 .button {
     color: #45a8d3;
     border: 1px #45a8d3 solid;
