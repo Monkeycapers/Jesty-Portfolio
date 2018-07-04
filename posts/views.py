@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils import timezone
+import json
 
-from posts.models import Post, Tag
+from posts.models import Post, Tag, Comment
 
 # Create your views here.
 
@@ -67,13 +69,30 @@ def getContext(amount, page, is_home=True, dark=False):
 def getPost(request, pid, slug=None):
     print(pid)
     p = Post.objects.get(pk=pid)
+
+    comments = p.comment_set.all()
+
     dark = request.session['dark'] if 'dark' in request.session else False
+
     context = {'post': p,
      'is_home': False,
      'tags': p.tags.all(),
-     'dark': dark
+     'dark': dark,
+     'comments': comments,
+     'amount_comments':len(comments)
      }
     return render(request, 'posts/post.html', context)
+
+def comment(request, pid):
+
+    #todo: check if post allows comments
+    print('test')
+    data = json.loads(request.body)
+    
+    p = Post.objects.get(pk=pid)
+    comment = Comment(content=data['content'], author_name=data['author'], post=p, published=timezone.now())
+    comment.save()
+    return HttpResponse(status=200)
 
 def search(request, type=None, searchtext=None, amount=5, page=1):
     print(type)

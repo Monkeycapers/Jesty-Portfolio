@@ -22,7 +22,7 @@
 {% block content %} 
 <div id = "posts" class="posts" style="margin-top:0px;"> 
 {% if post %}
-<div class="post">
+<div class="post" id = "post" data-value={{post.post_id|slugify}}>
     <div class="postheader">
         <a class="posttitle" href={% url 'getPost' post.post_id post.title|slugify %}>{{post.title}}</a> 
         <div class="postdate">
@@ -49,29 +49,43 @@
     <!--If comments-->
     <div class = "postcomments">
 
+        {% if comments %}
+
         <div class = "postcomments-text">
-            <textarea>Test</textarea>
+            <textarea id = "comment-text">Test</textarea>
         </div>
 
-        <div class = "button">
+        <div class = "button" id = "comment-button">
             Comment
         </div>
         
         <div class = "postcomments-amount">
-            There are 12 comments:
+            There are {{amount_comments}} comment(s):
         </div>
 
         <div class = "postcomments-comments">
+            {% for comment in comments %}
             <div class = "comment">
                 <div class = "comment-info">
-                    <div class = "comment-author">Anon</div>
-                    <div class = "comment-date">Posted on 7/1/2018</div>
+                    <div class = "comment-author">{{comment.author_name}}</div>
+                    <div class = "comment-date">{{comment.published}}</div>
                 </div>
                 <div class = "comment-content">
-                    A comment on a post.
+                    {{comment.content}}
                 </div>
             </div>
+            {% endfor %}
         </div>
+
+        {% else %}
+
+        <div class = "nocomments">
+            Comments have been disabled for this post.
+        </div>
+
+        {% endif %}
+
+        
         <!-- for comment in comments-->
         
     </div>

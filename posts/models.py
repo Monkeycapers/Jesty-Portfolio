@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -17,6 +18,20 @@ class Post(models.Model):
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True )
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    content = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
+    published = models.DateTimeField('date published')
+    author_name = models.CharField(max_length=20)
+    #Todo: Proper author support author = models.CharField(max_length=20) 
+    def __str__(self):
+        return self.content
+
+    # @classmethod
+    # def create(cls, content, author_name, post):
+    #     comment = cls(content=content, author_name=author_name, post=post, published=timezone.now())
+    #     return comment
 
 class Author(models.Model):
     name = models.CharField(max_length=200)

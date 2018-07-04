@@ -19,7 +19,21 @@ function toggleNight() {
       ;
 }
 
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
 $(document).ready(function(){
+
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", document.getElementsByName('csrfmiddlewaretoken')[0].value);  
+            }
+        }
+    });
+
     $("#morePosts").click(function() {
         // $.get("localhost:8000/posts/ajax/" + currPage) , function(response) {
         //     //No more posts
@@ -67,5 +81,26 @@ $(document).ready(function(){
             $("#small-menu").css("display", "none");
         }
         
+    });
+    $("#comment-button").click(function() {
+        //alert('test');
+        data = {};
+        data.content = document.getElementById('comment-text').value;
+        data.author = "Anon";
+        post_id = document.getElementById('post').getAttribute('data-value');
+        console.log(post_id);
+        $.post(
+            "http://" + URL + "/ajax-comment/" + post_id,
+            JSON.stringify(data)
+          ).done(function(response) {
+            console.log(response);
+            location.reload(true);
+            //alert('test1');
+          })
+          .fail(function (e) {
+            console.log(e);
+            //alert('test2');
+          })
+          ;
     });
 });
