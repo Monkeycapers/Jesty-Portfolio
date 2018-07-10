@@ -193,6 +193,8 @@ body {
 
 .comment {
     width: 100%;
+    margin-bottom: 10px;
+    word-wrap: break-word;
 }
 
 .comment-info {
@@ -215,6 +217,7 @@ body {
 .comment-content {
     margin-top: 5px;
     width: 100%;
+    margin-bottom: 5px;
 }
 
 .postheader {

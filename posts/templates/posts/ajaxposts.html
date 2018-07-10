@@ -13,6 +13,9 @@
 <div style="height: 10px; width: 100%;"></div>
 {{ post.preview | markdown | safe }}
 </div>
+<a href={% url 'getPost' post.post_id post.title|slugify %}>
+Continue reading...
+</a>
 </div>
 {% endfor %}
 {% else %}

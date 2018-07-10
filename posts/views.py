@@ -70,6 +70,11 @@ def getPost(request, pid, slug=None):
     print(pid)
     p = Post.objects.get(pk=pid)
 
+    # global comments
+    # comments = None
+    # if p.allow_comments:
+    #     comments = p.comment_set.all()
+
     comments = p.comment_set.all()
 
     dark = request.session['dark'] if 'dark' in request.session else False
@@ -78,8 +83,8 @@ def getPost(request, pid, slug=None):
      'is_home': False,
      'tags': p.tags.all(),
      'dark': dark,
-     'comments': comments,
-     'amount_comments':len(comments)
+     'comments':comments,
+     'amount_comments': len(comments) if p.allow_comments else -1
      }
     return render(request, 'posts/post.html', context)
 

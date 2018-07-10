@@ -16,6 +16,7 @@ class Post(models.Model):
     post_id = models.AutoField(primary_key=True)
     tags = models.ManyToManyField('Tag', blank=True)
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True )
+    allow_comments = models.BooleanField()
     def __str__(self):
         return self.title
 
