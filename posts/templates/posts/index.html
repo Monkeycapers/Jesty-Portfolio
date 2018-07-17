@@ -41,21 +41,31 @@
                 </div>
             </div>
             <div id="links">
-                <div id="links-inner">
-                    
-                    <a href='#' id ='toggle-night'><img src={% block darksel2 %} {% endblock %} class ='nightimage'></img></a>
-                    <a href={% url 'search' %}><img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img></a>
-                    <a href="Projects">Projects</a>
-                    <a href={% url 'getPost' 1 'this-site' %}>About</a>
-                    <a href={% url 'index' %} {% block homesel %} {% endblock %}>Home</a>
-                    <!-- <a href="Posts" >Posts</a> -->
-                    <!-- <a href="Posts">Posts</a> -->
-                    
-                    
-                    
-                    
-                    <!-- <a href={% url 'search' %}><img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img></a> -->
+                <!-- <div id="links-inner">
+                    <span><a href='#' id ='toggle-night'><img src= block darksel2  endblock  class ='nightimage'></img></a></span>
+                    <span><a href={% url 'search' %}><img src= static 'svg/magnify.svg'  id ='searchimage' class ='searchimage'></img></a></span>
+                    <span><a href="Projects">Projects</a></span>
+                    <span><a href={% url 'getPost' 1 'this-site' %}>About</a></span>
+                    <span><a href={% url 'index' %}  block homesel   endblock >Home</a></span>
+                </div> -->
+                <div id = "links-container">
+                    <div class = "nav-link"><a href={% url 'index' %}>Home</a></div>
+                    <div class = "nav-link"><a href={% url 'getPost' 1 'this-site' %}>About</a></div>
+                    <div class = "nav-link">
+                        <div id = "projects-dropdown" class = "no-padding" style="padding:0">
+                            <div><a href={% url 'index' %}>Drawit</a></div>
+                            <br>
+                            <div><a href={% url 'index' %}>GCBot</a></div>
+                            <br>
+                            <div><a href={% url 'index' %}>Link 3</a></div>
+                        </div>
+                        <a href="#" id = "projects">Projects</a>
+                        
+                    </div>
+                    <div class = "nav-link"><a href='#' id ='toggle-night'><img src={% block darksel2 %} {% endblock %} class ='nightimage'></img></a></div>
+                    <div class = "nav-link"><a href={% url 'search' %}><img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img></a></div>
                 </div>
+            
             </div>
         </div>
         
