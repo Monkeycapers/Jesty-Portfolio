@@ -45,7 +45,9 @@
                     
                     <a href='#' id ='toggle-night'><img src={% block darksel2 %} {% endblock %} class ='nightimage'></img></a>
                     <a href={% url 'search' %}><img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img></a>
-                    <a href="Projects">Projects</a>
+                    <a href="Projects">Projects
+                        <div>test</div>
+                    </a>
                     <a href={% url 'getPost' 1 'this-site' %}>About</a>
                     <a href={% url 'index' %} {% block homesel %} {% endblock %}>Home</a>
                     <!-- <a href="Posts" >Posts</a> -->
