@@ -25,6 +25,10 @@ body {
     color: #45e2f7;
 }
 
+#projects-dropdown {
+    background-color: #212121;
+}
+
 #small-nav {
     background-color: #212121;
     color: white;

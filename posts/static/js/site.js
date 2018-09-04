@@ -1,5 +1,6 @@
 var currPage = 1;
 var showMenu = false;
+var showProjectsDropDown = false;
 
 //var URL = "192.168.2.187:8000"
 var URL = "localhost:8000"
@@ -81,6 +82,15 @@ $(document).ready(function(){
             $("#small-menu").css("display", "none");
         }
         
+    });
+    $("#projects").click(function() {
+        showProjectsDropDown = !showProjectsDropDown;
+        if (showProjectsDropDown) {
+            $("#projects-dropdown").css("display", "inline-block");
+        }
+        else {
+            $("#projects-dropdown").css("display", "none");
+        }
     });
     $("#comment-button").click(function() {
         //alert('test');

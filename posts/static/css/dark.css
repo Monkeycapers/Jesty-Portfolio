@@ -46,6 +46,10 @@ a:visited {
     color: white;
 }
 
+#projects-dropdown {
+    background-color: #212121;
+}
+
 .posttitle {
     color:white;
     font-weight: bold;
