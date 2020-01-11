@@ -39,7 +39,11 @@
     {% endif %}
     <div class="postcontent">
         <div style="height: 10px; width: 100%;"></div>
-        {{ post.content | markdown | safe }}
+        {% if md %}
+        {{ text | markdown | safe }}
+        {% else %}
+        {{text | safe}}
+        {% endif %}
     </div>
     {% spaceless %}
     <!--<div class="split"></div>-->

@@ -13,5 +13,5 @@ urlpatterns = [
     path('search', views.search, name='search'),
     path('search/<str:type>', views.search, name='search'),
     path('search/<str:type>/<str:searchtext>', views.search, name='search'),
-    
+    path('resume', views.showResume, name='showResume')
 ]

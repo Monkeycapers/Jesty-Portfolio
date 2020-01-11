@@ -50,7 +50,8 @@
                 </div> -->
                 <div id = "links-container">
                     <div class = "nav-link"><a href={% url 'index' %}>Home</a></div>
-                    <div class = "nav-link"><a href={% url 'getPost' 1 'this-site' %}>About</a></div>
+                    <div class = "nav-link"><a href={% url 'showResume' %}>Resume</a></div>
+                    <!--<div class = "nav-link"><a href={% url 'getPost' 1 'this-site' %}>About</a></div>-->
                     <div class = "nav-link">
                         <div id = "projects-dropdown" class = "no-padding" style="padding:0">
                             <div><a href={% url 'index' %}>Drawit</a></div>
@@ -86,6 +87,7 @@
 
     <div id="small-menu">
             <div><a href={% url 'index' %}>Home</a></div>
+            <div><a href='#'>Resume</a></div>
             <div><a href={% url 'getPost' 1 'this-site' %}>About</a></div>
             <div><a href="Projects">Projects</a></div>
             <div><a href={% url 'search' %}>Search</a></div>
@@ -98,6 +100,7 @@
             {% block content %}{% endblock %}    
         </div>
 
+        {% if not hidesidebar %}
         <div id="sidebar" class="sidebar">
             <p class="sideheader" style="margin-top:0px">About:</p>
             <div class="sideimage">
@@ -105,7 +108,7 @@
                     <img src={% static "image/placeholder.jpg" %} class="roundimg">
                 </div>
             </div>
-            <br> I'm Evan Jesty, a 1st year computer science student at Nipissing University.
+            <br> I'm Evan Jesty, a 3rd year Computer Science student at Carleton University.
             <br> Here you can find various side projects I have worked on, and anything else I have posted on here.
 
             <p class="sideheader">Navigation:</p>
@@ -133,7 +136,7 @@
             <p>Streaming Converter: Offline</p>
 
         </div>
-
+        {% endif %}
 
 
     </div>

@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse, FileResponse
 from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
-import json
+from django.apps import apps
+import json, os
 
 from posts.models import Post, Tag, Comment
 
@@ -28,6 +28,10 @@ def togglenight(request):
     request.session['dark'] = not dark
     print('TOGGLE_NIGHT')
     return HttpResponse(status=200)
+
+def showResume(request):
+    PATH_TO_RESUME = os.path.join(apps.get_app_config('posts').path, 'res/resume.pdf')
+    return FileResponse(open(PATH_TO_RESUME, 'rb'))
 
 def index(request):
     return getPosts(5, 1, request)
@@ -55,6 +59,7 @@ def postsByTag(request, tag, amount=5, page=1):
     }
     return render(request, 'posts/search.html', context)
 
+#Render a list of post previews orderd by most recently published
 def getContext(amount, page, is_home=True, dark=False):
     latest_posts_list = Post.objects.order_by('-published')[((page - 1) * amount):(amount + ((page - 1) * amount))] # todo: very basic
     context = {
@@ -79,11 +84,20 @@ def getPost(request, pid, slug=None):
 
     dark = request.session['dark'] if 'dark' in request.session else False
 
+    content = p.content
+    if p.file_path:
+        #load content from page
+        with open(p.get_file_path_abspath()) as File:
+            content = File.read()
+
     context = {'post': p,
      'is_home': False,
      'tags': p.tags.all(),
      'dark': dark,
+     'hidesidebar': not p.toggle_sidebar,
      'comments':comments,
+     'text':content,
+     'md':p.post_type == 'MD',     
      'amount_comments': len(comments) if p.allow_comments else -1
      }
     return render(request, 'posts/post.html', context)

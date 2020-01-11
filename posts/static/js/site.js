@@ -3,7 +3,7 @@ var showMenu = false;
 var showProjectsDropDown = false;
 
 //var URL = "192.168.2.187:8000"
-var URL = "localhost:8000"
+var URL = "127.0.0.1:8000"
 
 function toggleNight() {
     $.ajax({
