@@ -54,7 +54,7 @@
                     <!--<div class = "nav-link"><a href={% url 'getPost' 1 'this-site' %}>About</a></div>-->
                     <div class = "nav-link">
                         <div id = "projects-dropdown" class = "no-padding" style="padding:0">
-                            <div><a href={% url 'index' %}>Drawit</a></div>
+                            <div><a href={% url 'drawit' %}>Drawit</a></div>
                             <br>
                             <div><a href={% url 'index' %}>GCBot</a></div>
                             <br>
@@ -95,8 +95,8 @@
     </div>
 
     <!-- Main Content -->
-    <div id="content" class="content">
-        <div id="main" class="main">
+    <div id="content" class ="content">
+        <div id="main" {% if not fullwidth %} class="main" {% else %} class="fullmain" {% endif %}>
             {% block content %}{% endblock %}    
         </div>
 
@@ -116,10 +116,7 @@
                 <li>
                     <!-- <a href=  url 'tags' >Categorys (TAGS)</a>
                     <a href=  url 'archives' >Archives</a> -->
-                    <a href="#">Categorys (TAGS)</a>
-                </li>
-                <li>
-                    <a href="#">Archives</a>
+                    <a href="#">View Tags</a>
                 </li>
             </ul>
 
@@ -129,12 +126,13 @@
                 <li>
                     <a href="https://github.com/Monkeycapers">Github</a>
                 </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/evan-jesty-902189165/">Linkedin</a>
+                </li>
+                <li>
+                    <a href={% url 'getPost' 1 'this-site' %}>About This Site</a>
+                </li>
             </ul>
-
-            <p class="sideheader">Server Status:</p>
-            <p>Drawit: Offline</p>
-            <p>Streaming Converter: Offline</p>
-
         </div>
         {% endif %}
 

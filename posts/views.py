@@ -33,6 +33,14 @@ def showResume(request):
     PATH_TO_RESUME = os.path.join(apps.get_app_config('posts').path, 'res/resume.pdf')
     return FileResponse(open(PATH_TO_RESUME, 'rb'))
 
+def drawit(request):
+    dark = request.session['dark'] if 'dark' in request.session else False
+    return render(request, 'posts/drawit.html', {
+        'hidesidebar':True,
+        'fullwidth':True,
+        'dark': dark
+    })
+
 def index(request):
     return getPosts(5, 1, request)
 
