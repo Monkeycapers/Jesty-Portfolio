@@ -33,6 +33,14 @@ def showResume(request):
     PATH_TO_RESUME = os.path.join(apps.get_app_config('posts').path, 'res/resume.pdf')
     return FileResponse(open(PATH_TO_RESUME, 'rb'))
 
+def projects(request):
+    dark = request.session['dark'] if 'dark' in request.session else False
+    return render(request, 'posts/projects.html', {
+        'hidesidebar':False,
+        'fullwidth':False,
+        'dark': dark
+    })
+
 def drawit(request):
     dark = request.session['dark'] if 'dark' in request.session else False
     return render(request, 'posts/drawit.html', {
@@ -125,6 +133,7 @@ def search(request, type=None, searchtext=None, amount=5, page=1):
     print(type)
     print(searchtext)
     dark = request.session['dark'] if 'dark' in request.session else False
+    tags = Tag.objects.all()
     if (type == 'tag'):
         print('?')
         try:
@@ -139,6 +148,7 @@ def search(request, type=None, searchtext=None, amount=5, page=1):
         context = {
             'hastag': True,
             'tag': actualTag,
+            'tags': tags,
             'latest_posts_list': posts,
             'more_posts': (len(posts) >= amount),
             'no_posts': (len(posts) == 0),
@@ -150,6 +160,7 @@ def search(request, type=None, searchtext=None, amount=5, page=1):
     else:
         context = {
             'hastag': False,
+            'tags': tags,
             'none': True,
             'no_posts': True,
             'is_home': False,

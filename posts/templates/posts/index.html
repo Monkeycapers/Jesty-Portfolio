@@ -56,11 +56,14 @@
                         <div id = "projects-dropdown" class = "no-padding" style="padding:0">
                             <div><a href={% url 'drawit' %}>Drawit</a></div>
                             <br>
+                            <div><a href={% url 'projects' %}>All Projects</a></div>
+                            <!--
                             <div><a href={% url 'index' %}>GCBot</a></div>
                             <br>
                             <div><a href={% url 'index' %}>Link 3</a></div>
+                            -->
                         </div>
-                        <a href="#" id = "projects">Projects</a>
+                        <a href="javascript:;" id = "projects">Projects</a>
                         
                     </div>
                     <div class = "nav-link"><a href='#' id ='toggle-night'><img src={% block darksel2 %} {% endblock %} class ='nightimage'></img></a></div>
@@ -89,7 +92,7 @@
             <div><a href={% url 'index' %}>Home</a></div>
             <div><a href='#'>Resume</a></div>
             <div><a href={% url 'getPost' 1 'this-site' %}>About</a></div>
-            <div><a href="Projects">Projects</a></div>
+            <div><a href={% url 'projects' %}>Projects</a></div>
             <div><a href={% url 'search' %}>Search</a></div>
             <div><a href="#" id ='toggle-night-small'>Toggle Theme</a></div>
     </div>
@@ -111,14 +114,16 @@
             <br> I'm Evan Jesty, a 3rd year Computer Science student at Carleton University.
             <br> Here you can find various side projects I have worked on, and anything else I have posted on here.
 
+            <!--
             <p class="sideheader">Navigation:</p>
             <ul>
                 <li>
-                    <!-- <a href=  url 'tags' >Categorys (TAGS)</a>
-                    <a href=  url 'archives' >Archives</a> -->
+                    <a href=  url 'tags' >Categorys (TAGS)</a>
+                    <a href=  url 'archives' >Archives</a> 
                     <a href="#">View Tags</a>
                 </li>
             </ul>
+            -->
 
 
             <p class="sideheader">Links:</p>

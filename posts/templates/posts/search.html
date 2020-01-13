@@ -23,14 +23,24 @@
     <!-- <div id = "searchinput">
         Search for posts: <input type="text"></input>
     </div> -->
-    <div id = "searchinput" class = "searchinput">
-        <input type="search" placeholder="Search for posts..."></input> 
-        <img src={% static 'svg/magnify.svg' %} id ='searchimage' class ='searchimage'></img>
+    <div id = "searchinput" class = "searchinput" style='display:none'>
+        <input type="search" placeholder="Search for posts..." style='color:black;'></input> 
+        <img src={% if dark %}{% static 'svg/magnify.svg' %}{% else %}{% static 'svg/magnify-light.svg' %}{% endif %} id ='searchimage' class ='searchimage'></img>
         <!-- <img src={% static 'svg/magnify.svg' %} id ='showtags' class = 'showtags'></img> -->
     </div>
-    
+    <div id="viewtags">
+      <a href='#' id='showtags'>Show tags</a>
+      <div id='displaytags' style='margin-top:5px;display:none'>
+        {% for t in tags %}
+        <a href={% url 'search' 'tag' t.tag %} class = "tag"> {{t}} </a>
+        {% endfor %}
+      </div>
+    </div>
     <div id = "amountposts">
-        <h2 class = 'searchresponse'>{{amount}} Post{% if amount != 1 %}s{% endif %}{% if hastag %}{% if tag is None %}, the tag does not exist! </h2> {% else %} {% if amount == 1 %} has {% else %} have {% endif %} the tag </h2> <span class = "tag"> {{tag}} </span> {% endif %} {% else %} </h2> {% endif %}
+        <h2 class = 'searchresponse'>
+            {{amount}} Post{% if amount != 1 %}s{% endif %}
+            {% if hastag %}{% if tag is None %}, the tag does not exist! </h2> {% else %} {% if amount == 1 %} has {% else %} have {% endif %} the tag </h2> <span class = "tag"> {{tag}} </span> {% endif %} 
+            {% else %} </h2> {% endif %}
     </div>
 </div>
 <div id = "posts" class="posts" style="margin-top:0px;">        

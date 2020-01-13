@@ -1,6 +1,7 @@
 var currPage = 1;
 var showMenu = false;
 var showProjectsDropDown = false;
+var showTags = false;
 
 //var URL = "192.168.2.187:8000"
 var URL = "127.0.0.1:8000"
@@ -91,6 +92,18 @@ $(document).ready(function(){
         else {
             $("#projects-dropdown").css("display", "none");
         }
+    });
+    $('#showtags').click(function () {
+      showTags = !showTags;
+      var elem = document.getElementById('showtags');
+      if (showTags) {
+        $('#displaytags').css('display', 'block');
+        elem.textContent = "Hide Tags";
+      }
+      else {
+        $('#displaytags').css('display', 'none');
+        elem.textContent = "Show Tags";  
+      }
     });
     $("#comment-button").click(function() {
         //alert('test');

@@ -1,0 +1,32 @@
+{% extends "posts/index.html" %}
+{% load staticfiles %} 
+{% load markdownify %}
+
+{% block darksel %}
+{% if dark %}
+<link rel="stylesheet" href={% static "css/dark.css" %}>
+{% else %}
+<link rel="stylesheet" href={% static "css/light.css" %}>
+{% endif %}
+{% endblock %}
+
+{% block darksel2 %}
+{% if dark %}
+{% static 'svg/sun.svg' %}
+{% else %}
+{% static 'svg/moon.svg' %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div>
+<h2>Projects: </h2>
+<h3>Drawit</h3>
+<p>
+    A multiplayer drawing game primarly developed in the summer of 2017. One player draws a word while the other players guess what is being drawn.
+    The player with the most amount of correct guesses wins. The game also supports Freedraw, where a blank canvas is given so that multiple players
+    can draw at the same time. Drawit uses a lobby based system for the gamemodes and supports password protection and invite links. You can play the
+    game <a href={% url "drawit" %}>at this link</a>.
+</p>
+</div> 
+{% endblock %}
