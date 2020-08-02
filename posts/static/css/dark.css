@@ -27,7 +27,7 @@ a:visited {
 }
 
 .logosub {
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
 }
 
 #small-logo-sub {
@@ -35,7 +35,7 @@ a:visited {
 }
 
 .navbar a:hover {
-    color: #45e2f7;
+    color:#ff7ccb;
 }
 
 .selected {

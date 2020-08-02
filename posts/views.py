@@ -11,7 +11,7 @@ from posts.models import Post, Tag, Comment
 # Create your views here.
 
 def ajax(request, page):
-    template = loader.get_template('posts/ajaxposts.html')
+    template = loader.get_template('posts/ajaxposts.j2')
     context = getContext(5, page)
     output = template.render(context, request)
     return JsonResponse(
@@ -22,6 +22,25 @@ def ajax(request, page):
         "no_posts": context['no_posts']
     }
     )
+
+pride_colors = ['#e40303', '#ff8c00', '#ffed00', '#008026', '#004dff', '#750787'] #LGBTQ color codes
+pride_height=6
+pride_width=5
+
+#misc things to add to context
+def wrapContext(context):
+    pride_colors_info = []
+    for index,col in enumerate(pride_colors):
+        pride_colors_dict = {
+          'y': index * pride_height,
+          'x': 0,
+          'width': pride_width,
+          'height': pride_height,
+          'col': col
+        }
+        pride_colors_info.append(pride_colors_dict)
+    context['pride_colors'] = pride_colors_info
+    return context
 
 def togglenight(request):
     dark = request.session['dark'] if 'dark' in request.session else False
@@ -35,19 +54,19 @@ def showResume(request):
 
 def projects(request):
     dark = request.session['dark'] if 'dark' in request.session else False
-    return render(request, 'posts/projects.html', {
+    return render(request, 'posts/projects.j2', wrapContext({
         'hidesidebar':False,
         'fullwidth':False,
         'dark': dark
-    })
+    }))
 
 def drawit(request):
     dark = request.session['dark'] if 'dark' in request.session else False
-    return render(request, 'posts/drawit.html', {
+    return render(request, 'posts/drawit.j2', wrapContext({
         'hidesidebar':True,
         'fullwidth':True,
         'dark': dark
-    })
+    }))
 
 def index(request):
     return getPosts(5, 1, request)
@@ -56,7 +75,7 @@ def getPosts(amount, page, request):
     print('dark' in request.session)
     dark = request.session['dark'] if 'dark' in request.session else False
     #print(dark)
-    return render(request, 'posts/posts.html', getContext(amount, page, True, dark))
+    return render(request, 'posts/posts.j2', getContext(amount, page, True, dark))
 
 def postsByTag(request, tag, amount=5, page=1):
     actualTag = Tag.objects.get(tag=tag)
@@ -73,7 +92,7 @@ def postsByTag(request, tag, amount=5, page=1):
         'amount': total,
         'dark': dark
     }
-    return render(request, 'posts/search.html', context)
+    return render(request, 'posts/search.j2', wrapContext(context))
 
 #Render a list of post previews orderd by most recently published
 def getContext(amount, page, is_home=True, dark=False):
@@ -85,7 +104,7 @@ def getContext(amount, page, is_home=True, dark=False):
         'is_home': is_home,
         'dark': dark
     }
-    return context
+    return wrapContext(context)
 
 def getPost(request, pid, slug=None):
     print(pid)
@@ -116,7 +135,7 @@ def getPost(request, pid, slug=None):
      'md':p.post_type == 'MD',     
      'amount_comments': len(comments) if p.allow_comments else -1
      }
-    return render(request, 'posts/post.html', context)
+    return render(request, 'posts/post.j2', wrapContext(context))
 
 def comment(request, pid):
 
@@ -156,7 +175,7 @@ def search(request, type=None, searchtext=None, amount=5, page=1):
             'amount': total,
             'dark': dark
         }
-        return render(request, 'posts/search.html', context)
+        return render(request, 'posts/search.j2', wrapContext(context))
     else:
         context = {
             'hastag': False,
@@ -167,4 +186,4 @@ def search(request, type=None, searchtext=None, amount=5, page=1):
             'amount': 0,
             'dark': dark
         }
-        return render(request, 'posts/search.html', context)
+        return render(request, 'posts/search.j2', wrapContext(context))

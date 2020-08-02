@@ -93,7 +93,7 @@ body {
 }
 
 #small-menu div a:hover {
-    color: #45e2f7;
+    color: #ff7ccb;
 }
 
 #small-logo {
@@ -128,8 +128,21 @@ body {
     vertical-align: top;
 }
 
+.rainbow {
+  margin-top:6px;
+  margin-right:6px;
+  display:flex;
+}
+
+.rainbow-item {
+  display:inline-block;
+  width:3px; 
+  height:6px;
+}
+
 .navbar #logo {
     width: auto;
+    display:flex;
     font-weight: bold;
     font-size: 20px;
     float: left;
@@ -137,7 +150,7 @@ body {
 }
 
 .logosub {
-    color: #636363;
+    color: #fffefe;
     font-size: 14px;
 }
 
@@ -148,7 +161,7 @@ body {
 } */
 
 .navbar a:hover {
-    color: #45e2f7;
+    color: #ff7ccb;
 }
 
 .selected {

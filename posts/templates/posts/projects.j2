@@ -1,4 +1,4 @@
-{% extends "posts/index.html" %}
+{% extends "posts/index.j2" %}
 {% load static %} 
 {% load markdownify %}
 
@@ -27,6 +27,12 @@
     The player with the most amount of correct guesses wins. The game also supports Freedraw, where a blank canvas is given so that multiple players
     can draw at the same time. Drawit uses a lobby based system for the gamemodes and supports password protection and invite links. You can play the
     game <a href={% url "drawit" %}>at this link</a>.
+</p>
+<h3>Sound Wave Surfer</h3>
+<p>
+    SoundWave Surfer is a rhythm game where the player takes the wheel of a sports car, and attempts to achieve the highest score on stages (aka beatmaps) generated via analysis of a music file. 
+    Currently only available on android phones/tablets. We used Unity to develop the game; so the apk can be built directly through the unity editor.
+    You can find a link to the project repository <a href='https://github.com/EmadRyanA/EAS-3004B'>here</a>.
 </p>
 </div> 
 {% endblock %}

@@ -18,11 +18,11 @@ body {
 }
 
 .logosub {
-    color: #E0E0E0;
+    color: rgb(255, 255, 255);
 }
 
 .navbar a:hover {
-    color: #45e2f7;
+    color: #ff7ccb;
 }
 
 #projects-dropdown {
