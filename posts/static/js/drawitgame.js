@@ -10,7 +10,7 @@ const MAIN_PANEL = 2;
 const SERVER_PANEL = 3;
 const USER_PANEL = 4;
 
-const WEBSOCKET_URL = 'ws://localhost:8080';
+const WEBSOCKET_URL = 'wss://jesty.dev/drawitws';
 
 var drawtimer;
 
@@ -462,11 +462,13 @@ function setUpColor() {
 
 function connect() {
     try {
+        //var nick = readCookie("nick");
+	//if (nick === null || nick === "") {
+        nick = window.prompt("Enter a nickname", "");
+	//}
         connection = new WebSocket(WEBSOCKET_URL);
         connection.onopen = function() {
             console.log("server open");
-
-            var nick = readCookie("nick");
             if (nick != null) {
                 document.getElementById("create-nick").value = nick;
                 document.getElementById("servertable-nick").value = nick;
@@ -476,11 +478,12 @@ function connect() {
             var id = getParam("id");
             if (id != null) {
                 var token = getParam("token");
-                var toSend = {
+		var toSend = {
                     "argument": "jointoken",
                     "id": id,
                     "capabilities": capabilities,
-                    "token": token
+                    "token": token,
+		    "nick": nick
                 }
                 connection.send(JSON.stringify(toSend));
             } else {

@@ -3,12 +3,12 @@ var showMenu = false;
 var showProjectsDropDown = false;
 var showTags = false;
 
-var URL = "165.227.200.130:8000"
+var URL = "jesty.dev"
 //var URL = "127.0.0.1:8000"
 
 function toggleNight() {
     $.ajax({
-        url: "http://" + URL + "/ajax-toggle-night"
+	    url: "https://" + URL + "/ajax-toggle-night"
       }).done(function(response) {
         console.log(response);
         location.reload(true);
