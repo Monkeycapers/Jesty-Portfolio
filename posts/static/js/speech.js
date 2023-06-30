@@ -11,19 +11,31 @@ const init = () => {
   transcript = document.getElementById("transcript");
   voiceSelect = document.getElementById("voiceselect");
   initVoices();
-  input.addEventListener("keyup", (event) => {
-    if (event.key === " ") {
-      event.preventDefault();
-      text = input.value.trim();
-      transcript.innerHTML += ` ${text}`;
-      input.value = "";
-
-      const voice = getVoiceByName(voiceSelect.selectedOptions[0].getAttribute("data-name"));
-
-      speak(text, voice);
+  addEventListener("voiceschanged", () => {initVoices();});
+  // input.addEventListener("keyUp", (event) => {
+  //   if (event.key === " ") {
+  //     event.preventDefault();
+  //     talk();
+  //   }
+  // });
+  input.addEventListener("keyup", e => {
+    var keyCode = e.keyCode || e.which || e.key;
+    if (keyCode === " " || keyCode == 0 || keyCode === 32) {
+      e.preventDefault();
+      talk();
     }
   });
 };
+
+const talk = () => {
+  text = input.value.trim();
+  transcript.innerHTML += ` ${text}`;
+  input.value = "";
+
+  const voice = getVoiceByName(voiceSelect.selectedOptions[0].getAttribute("data-name"));
+
+  speak(text, voice);
+}
 
 const getVoiceByName = (name) => {
   return voices.find((voice) => voice.name === name);
@@ -31,6 +43,7 @@ const getVoiceByName = (name) => {
 
 const initVoices = () => {
   voices = synth.getVoices();
+  voiceSelect.innerHTML = "";
   voices.forEach((voice) => {
     let option = document.createElement("option");
     option.textContent = `${voice.name} (${voice.lang})`;
