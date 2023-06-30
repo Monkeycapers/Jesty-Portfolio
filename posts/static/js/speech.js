@@ -11,7 +11,7 @@ const init = () => {
   transcript = document.getElementById("transcript");
   voiceSelect = document.getElementById("voiceselect");
   initVoices();
-  addEventListener("voiceschanged", (event) => {initVoices();});
+  synth.addEventListener("voiceschanged", (event) => {initVoices();});
   // input.addEventListener("keyUp", (event) => {
   //   if (event.key === " ") {
   //     event.preventDefault();
