@@ -20,7 +20,7 @@ const init = () => {
   // });
   input.addEventListener("keyup", (e) => {
       setTimeout(() => {
-        if (input.value.contains(" ")) {
+        if (input.value.includes(" ")) {
           talk();
         }
       }, 5);
