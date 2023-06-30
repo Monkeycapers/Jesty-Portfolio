@@ -1,0 +1,43 @@
+{% extends "posts/index.j2" %}
+{% load static %} 
+
+{% block darksel %}
+{% if dark %}
+<link rel="stylesheet" href={% static "css/dark.css" %}>
+{% else %}
+<link rel="stylesheet" href={% static "css/light.css" %}>
+{% endif %}
+{% endblock %}
+
+{% block darksel2 %}
+{% if dark %}
+{% static 'svg/sun.svg' %}
+{% else %}
+{% static 'svg/moon.svg' %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    <script src={% static "js/speech.js" %}></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width: 800px)" href={% static "css/speech.css" %} />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<div class="ttscontainer">
+    <div id="transcript">
+    </div>
+    <div>
+        <h1>Text to Speech</h1>
+        <p>Enter text to convert to speech</p>
+        <textarea id="ttsinput" rows="10" cols="50"></textarea>
+    </div>
+    <div class="controls">
+        <div id="voice">
+            <select id="voiceselect">
+            </select>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

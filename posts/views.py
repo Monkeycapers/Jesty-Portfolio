@@ -23,23 +23,8 @@ def ajax(request, page):
     }
     )
 
-pride_colors = ['#e40303', '#ff8c00', '#ffed00', '#008026', '#004dff', '#750787'] #LGBTQ color codes
-pride_height=6
-pride_width=5
-
 #misc things to add to context
 def wrapContext(context):
-    pride_colors_info = []
-    for index,col in enumerate(pride_colors):
-        pride_colors_dict = {
-          'y': index * pride_height,
-          'x': 0,
-          'width': pride_width,
-          'height': pride_height,
-          'col': col
-        }
-        pride_colors_info.append(pride_colors_dict)
-    context['pride_colors'] = pride_colors_info
     return context
 
 def togglenight(request):
@@ -63,6 +48,14 @@ def projects(request):
 def drawit(request):
     dark = request.session['dark'] if 'dark' in request.session else False
     return render(request, 'posts/drawit.j2', wrapContext({
+        'hidesidebar':True,
+        'fullwidth':True,
+        'dark': dark
+    }))
+
+def speech(request):
+    dark = request.session['dark'] if 'dark' in request.session else False
+    return render(request, 'posts/speech.j2', wrapContext({
         'hidesidebar':True,
         'fullwidth':True,
         'dark': dark

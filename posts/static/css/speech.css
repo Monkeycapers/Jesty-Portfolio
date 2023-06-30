@@ -1,0 +1,15 @@
+.ttscontainer {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: center;
+}
+
+.ttscontainer > div {
+    align-self: center;
+}
+
+.transcript {
+    width: 50%;
+    overflow: scroll;
+}
