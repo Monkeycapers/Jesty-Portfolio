@@ -41,7 +41,11 @@ const getVoiceByName = (name) => {
   return voices.find((voice) => voice.name === name);
 };
 
+const initVoicesLock = false;
+
 const initVoices = () => {
+  if (initVoicesLock) return;
+  initVoicesLock = true;
   voices = synth.getVoices();
   voiceSelect.innerHTML = "";
   voices.forEach((voice) => {
@@ -51,6 +55,7 @@ const initVoices = () => {
     option.setAttribute("data-name", voice.name);
     voiceSelect.appendChild(option);
   });
+  initVoicesLock = false;
 }
 
 const speak = (text, voice) => {
