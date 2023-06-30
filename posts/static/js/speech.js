@@ -19,11 +19,11 @@ const init = () => {
   //   }
   // });
   input.addEventListener("keyup", (e) => {
-    var keyCode = e.keyCode || e.which || e.key;
-    if (keyCode === " " || keyCode == 0 || keyCode === 32) {
-      e.preventDefault();
-      talk();
-    }
+      setTimeout(() => {
+        if (input.value.contains(" ")) {
+          talk();
+        }
+      }, 5);
   });
 };
 
