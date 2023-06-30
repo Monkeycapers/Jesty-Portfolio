@@ -11,14 +11,14 @@ const init = () => {
   transcript = document.getElementById("transcript");
   voiceSelect = document.getElementById("voiceselect");
   initVoices();
-  addEventListener("voiceschanged", () => {initVoices();});
+  addEventListener("voiceschanged", (event) => {initVoices();});
   // input.addEventListener("keyUp", (event) => {
   //   if (event.key === " ") {
   //     event.preventDefault();
   //     talk();
   //   }
   // });
-  input.addEventListener("keyup", e => {
+  input.addEventListener("keyup", (e) => {
     var keyCode = e.keyCode || e.which || e.key;
     if (keyCode === " " || keyCode == 0 || keyCode === 32) {
       e.preventDefault();
@@ -41,7 +41,7 @@ const getVoiceByName = (name) => {
   return voices.find((voice) => voice.name === name);
 };
 
-const initVoicesLock = false;
+let initVoicesLock = false;
 
 const initVoices = () => {
   if (initVoicesLock) return;
