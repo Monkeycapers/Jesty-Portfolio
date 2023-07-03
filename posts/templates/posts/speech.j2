@@ -24,8 +24,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 <div class="ttscontainer">
-    <div id="transcript">
-    </div>
     <div>
         <h1>Text to Speech</h1>
         <p>Enter text to convert to speech</p>
@@ -33,9 +31,19 @@
     </div>
     <div class="controls">
         <div id="voice">
+        <label>Selected voice: </label>
             <select id="voiceselect">
             </select>
         </div>
+        <div>
+            <label>Special characters, speaks when those characters are inputed: </label>
+            <input type="text" id="specialChars" value="qq"></input>
+        </div>
+        <div>
+            <button id="save">Save</button>
+        </div>
+    </div>
+    <div id="transcript">
     </div>
 </div>
 

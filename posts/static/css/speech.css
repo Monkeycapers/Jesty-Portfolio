@@ -13,3 +13,7 @@
     width: 50%;
     overflow: scroll;
 }
+
+.controls > div {
+    margin-top: 10px;
+}
